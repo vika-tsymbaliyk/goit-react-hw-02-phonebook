@@ -6,6 +6,9 @@ export const PhonebookForm = styled(Form)`
   display:flex;
   flex-direction:column;
   gap: 15px;
+  border: 1px solid black;
+  border-radius:5px;
+  padding: 10px;
 `;
 export const Label = styled.label`
   display: flex;
