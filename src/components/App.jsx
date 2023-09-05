@@ -14,14 +14,14 @@ export class App extends Component {
 addContact = newContact =>{
   const { name, number } = newContact;
 
-  // const isExist = this.state.contacts.some(
-  //   contact => contact.name.toUpperCase() === name.toUpperCase()
-  //     || contact.number === number
-  // );
-  // if (isExist) {
-  //   alert(`${name} is already in contacts.`);
-  //   return
-  // }
+  const isExist = this.state.contacts.some(
+    contact => contact.name.toUpperCase() === name.toUpperCase()
+      || contact.number === number
+  );
+  if (isExist) {
+    alert(`${name} is already in contacts.`);
+    return
+  }
 
   this.setState(prevState => ({
     contacts: [
@@ -51,10 +51,8 @@ render(){
   <ContactForm onAdd={this.addContact}/>
     
   <h2>Contacts</h2>
-  {/* <Filter filter={filter} onSearchContact={this.searchContact}/>   */}
-  <div>
+  <Filter filter={filter} onSearchContact={this.searchContact}/>
   <ContactList filterContactsList={filterContacts} deleteContact={this.deleteContact}/>
-  </div>
   </Layout>
   )
 }
