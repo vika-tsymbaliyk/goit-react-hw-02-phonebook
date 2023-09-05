@@ -1,7 +1,8 @@
-import { Contact } from "components/Contact/Contact"
-import { ContactListWrap, ListItem } from "./ContactList.styled"
+import { Contact } from "components/Contact/Contact";
+import { ContactListWrap, ListItem } from "./ContactList.styled";
+import PropTypes from 'prop-types';
 
-export const ContactList =({filterContactsList,deleteContact})=>{
+export const ContactList =({filterContactsList, deleteContact})=>{
     return(
         <ContactListWrap>
           {filterContactsList.map(contact => (
@@ -11,4 +12,15 @@ export const ContactList =({filterContactsList,deleteContact})=>{
           ))}
         </ContactListWrap>
     )
+}
+
+ContactList.propTypes = {
+  filterContactsList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired
+    })
+  ),
+  deleteContact: PropTypes.func,
 }

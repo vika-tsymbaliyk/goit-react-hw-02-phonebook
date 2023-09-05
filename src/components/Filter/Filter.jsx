@@ -1,4 +1,5 @@
-import { FilterWrap, FilterLabel } from "./Filter.styled"
+import { FilterWrap, FilterLabel } from "./Filter.styled";
+import PropTypes from 'prop-types';
 
 export const Filter =({filter, onSearchContact})=>{
     return(
@@ -9,4 +10,9 @@ export const Filter =({filter, onSearchContact})=>{
             </FilterLabel>
         </FilterWrap>
     )
+}
+
+Filter.propTypes = {
+    filter: PropTypes.string ,
+    onSearchContact: PropTypes.func.isRequired,
 }
